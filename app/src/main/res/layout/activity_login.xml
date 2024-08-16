@@ -19,7 +19,7 @@
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="364dp" />
+        tools:layout_editor_absoluteY="341dp" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -37,7 +37,7 @@
         android:layout_width="272dp"
         android:layout_height="42dp"
         android:layout_marginTop="24dp"
-        android:background="@drawable/editTxt"
+        android:background="@drawable/txtedit"
         android:drawableLeft="@drawable/user"
         android:drawablePadding="15dp"
         android:ems="10"
@@ -56,7 +56,7 @@
         android:layout_width="272dp"
         android:layout_height="42dp"
         android:layout_marginTop="32dp"
-        android:background="@drawable/editTxt"
+        android:background="@drawable/txtedit"
         android:drawableLeft="@drawable/password"
         android:drawablePadding="15dp"
         android:ems="10"
@@ -74,7 +74,7 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="32dp"
         android:fontFamily="monospace"
         android:text="By"
         android:textColor="#ffffff"
@@ -127,7 +127,7 @@
         android:id="@+id/ctaNuevaBton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="24dp"
         android:fontFamily="@font/adlam_display"
         android:text="¿No tienes Cuenta?"
         android:textColor="#F6F6A7"
