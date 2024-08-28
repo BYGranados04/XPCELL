@@ -1,9 +1,10 @@
 from flask import Flask, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from flask_marshmallow import Marshmallow
+from flask_cors import CORS
 
 app = Flask(__name__)
-
+CORS(app)
 # Configuración para usar SQLite en lugar de MySQL
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///C:\\Users\\brenn\\OneDrive\\Escritorio\\Mis cosas\\1. UMG\\6to Semestre\\BD 1\\Proyecto\\XPCELL\\XPCELLDB.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
@@ -104,15 +105,18 @@ class DetalleOrden(db.Model):
 @app.route('/validar_usuario', methods=['POST'])
 def validar_usuario():
     datos = request.json
+    print(f"Datos recibidos: {datos}")  # Log para verificar los datos recibidos
     usuario = datos.get('usuario')
     contrasena = datos.get('contrasena')
-    
+
     # Buscar el usuario en la base de datos
     usuario_encontrado = Usuario.query.filter_by(usuario=usuario, contrasena=contrasena).first()
-    
+
     if usuario_encontrado:
+        print(f"Usuario encontrado: {usuario_encontrado.usuario}")  # Log para verificar el usuario encontrado
         return jsonify({"success": True, "tipo_usuario": usuario_encontrado.tipo_usuario})
     else:
+        print("Usuario o contraseña incorrectos")  # Log para verificar que el usuario no fue encontrado
         return jsonify({"success": False})
 
 # Endpoint para registrar un usuario, pide al usuario su nombre de usuario y su contrasena. Por defecto en tipo_usuario se pone 'cliente'.
@@ -282,10 +286,8 @@ def crear_orden():
             repuesto.stock -= detalle.cantidad
             if repuesto.stock < 0:
                 return jsonify({"mensaje": "Stock insuficiente para el repuesto: {}".format(repuesto.nombre_repuesto)}), 400
-    
     # Crear la orden
     nueva_orden = Orden(id_usuario=id_usuario, total=total)
-    
     try:
         db.session.add(nueva_orden)
         db.session.commit()
@@ -309,8 +311,6 @@ def crear_orden():
         db.session.rollback()
         return jsonify({"mensaje": "Error al crear la orden", "error": str(e)}), 500
 
-if __name__ == "__main__":
-    app.run(debug=True)
-
-
-# python apidb.py, para ejecutar
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000)
+#  python apidb.py, para ejecutar
