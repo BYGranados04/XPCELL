@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#04335c"
+    android:background="#F2F2F3"
     android:padding="16dp">
 
     <TextView
@@ -14,7 +14,7 @@
         android:layout_marginTop="8dp"
         android:fontFamily="@font/adlam_display"
         android:letterSpacing="0.5"
-        android:textColor="#ffffea"
+        android:textColor="#121212"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.86"
@@ -30,7 +30,7 @@
         android:fontFamily="@font/adlam_display"
         android:letterSpacing="0.5"
         android:text="Q."
-        android:textColor="#ffffea"
+        android:textColor="#121212"
         android:textSize="14sp"
         app:layout_constraintEnd_toStartOf="@+id/precio"
         app:layout_constraintHorizontal_bias="0.961"
@@ -44,7 +44,7 @@
         android:layout_marginEnd="56dp"
         android:fontFamily="@font/adlam_display"
         android:letterSpacing="0.5"
-        android:textColor="#ffffea"
+        android:textColor="#121212"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/precio_label" />
@@ -56,10 +56,10 @@
         android:fontFamily="@font/adlam_display"
         android:letterSpacing="0.5"
         android:text="Stock:"
-        android:textColor="#ffffea"
+        android:textColor="#121212"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.725"
+        app:layout_constraintHorizontal_bias="0.674"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/precio" />
 
@@ -70,7 +70,7 @@
         android:layout_marginEnd="44dp"
         android:fontFamily="@font/adlam_display"
         android:letterSpacing="0.5"
-        android:textColor="#ffffea"
+        android:textColor="#121212"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/stock_label" />
@@ -81,7 +81,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/adlam_display"
         android:letterSpacing="0.5"
-        android:textColor="#ffffea"
+        android:textColor="#121212"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.786"
@@ -94,7 +94,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/adlam_display"
         android:letterSpacing="0.5"
-        android:textColor="#ffffea"
+        android:textColor="#121212"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.786"

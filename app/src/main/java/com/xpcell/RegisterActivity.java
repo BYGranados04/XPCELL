@@ -72,8 +72,7 @@ public class RegisterActivity extends AppCompatActivity {
                     Respuesta respuesta = response.body();
                     Log.d("RegisterActivity", "Respuesta del servidor: " + respuesta);
                     if (respuesta != null) {
-                        // Utiliza el método correcto de la clase Respuesta
-                        String mensaje = respuesta.getMensaje(); // Asegúrate de que este método exista
+                        String mensaje = respuesta.getMensaje();
                         Toast.makeText(RegisterActivity.this, mensaje, Toast.LENGTH_SHORT).show();
                         if (response.code() == 201) {
                             Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
