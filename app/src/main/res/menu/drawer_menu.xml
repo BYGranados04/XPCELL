@@ -3,72 +3,33 @@
     <item
         android:id="@+id/nav_logo"
         android:icon="@drawable/logo"
-        android:title="Logo"
+        android:title="XP-CELL"
         android:enabled="false" />
 
     <item
-        android:id="@+id/nav_price"
-        android:title="Precio">
-        <menu>
-            <item
-                android:id="@+id/nav_price_ascending"
-                android:title="Menor a mayor" />
-            <item
-                android:id="@+id/nav_price_descending"
-                android:title="Mayor a menor" />
-        </menu>
+        android:id="@+id/nav_sort"
+        android:title="Ordenar por"
+        android:textAppearance="@style/NavigationMenuTextStyle" >
     </item>
 
     <item
+        android:id="@+id/nav_price_ascending"
+        android:title="- Precio de Mayor a Menor"
+        android:textAppearance="@style/NavigationMenuTextStyle" />
+    <item
+        android:id="@+id/nav_price_descending"
+        android:title="- Precio de Menor a Mayor"
+        android:textAppearance="@style/NavigationMenuTextStyle" />
+
+    <item
         android:id="@+id/nav_brand"
-        android:title="Marca">
-        <menu>
-            <item
-                android:id="@+id/nav_brand_samsung"
-                android:title="Samsung" />
-            <item
-                android:id="@+id/nav_brand_apple"
-                android:title="Apple" />
-            <item
-                android:id="@+id/nav_brand_huawei"
-                android:title="Huawei" />
-        </menu>
+        android:title="Por Marca"
+        android:textAppearance="@style/NavigationMenuTextStyle" >
     </item>
 
     <item
         android:id="@+id/nav_type"
-        android:title="Tipo de Repuesto">
-        <menu>
-            <item
-                android:id="@+id/nav_type_screen"
-                android:title="Pantalla" />
-            <item
-                android:id="@+id/nav_type_battery"
-                android:title="Batería" />
-            <item
-                android:id="@+id/nav_type_charge_flex"
-                android:title="Flex de Cargo" />
-            <item
-                android:id="@+id/nav_type_camera"
-                android:title="Cámara" />
-            <item
-                android:id="@+id/nav_type_headphone"
-                android:title="Auricular" />
-            <item
-                android:id="@+id/nav_type_flex_main"
-                android:title="Flex Main" />
-            <item
-                android:id="@+id/nav_type_fpc"
-                android:title="FPC" />
-            <item
-                android:id="@+id/nav_type_audio_codec"
-                android:title="Codec audio" />
-            <item
-                android:id="@+id/nav_type_ifpmic"
-                android:title="IFPMIC" />
-            <item
-                android:id="@+id/nav_type_hydra"
-                android:title="HYDRA" />
-        </menu>
+        android:title="Por Tipo de Repuesto"
+        android:textAppearance="@style/NavigationMenuTextStyle" >
     </item>
 </menu>

@@ -99,6 +99,10 @@ class DetalleOrden(db.Model):
         self.cantidad = cantidad
         self.precio = precio
 
+class ModeloSchema(ma.SQLAlchemyAutoSchema):
+    class Meta:
+        model = Modelo
+
 # *-METODOS PARA LOGIN Y REGISTER-*
 
 # Validando si existe el usuario y si conincide con la contraseña, y devuelve si es cliente o admin.
@@ -311,6 +315,47 @@ def crear_orden():
         db.session.rollback()
         return jsonify({"mensaje": "Error al crear la orden", "error": str(e)}), 500
 
+# Ordenando de mayor a menor
+@app.route('/repuestosprecio', methods=['GET'])
+def get_repuestosprecios():
+    # Obtiene el parámetro 'order' de la solicitud, por defecto 'desc' (de mayor a menor)
+    order = request.args.get('order', 'desc').lower()
+    
+    if order not in ['asc', 'desc']:
+        return jsonify({'error': 'Invalid order parameter. Use "asc" or "desc".'}), 400
+    
+    conn = get_db_connection()
+    cursor = conn.cursor()
+    
+    # Ejecuta la consulta SQL para obtener repuestos ordenados por precio
+    query = 'SELECT * FROM repuestos ORDER BY precio {}'.format(order)
+    cursor.execute(query)
+    
+    repuestos = cursor.fetchall()
+    conn.close()
+    
+    # Convertir los resultados en una lista de diccionarios
+    repuestos_list = [dict(row) for row in repuestos]
+    
+    return jsonify(repuestos_list)
+
+#Ordenando por marca los modelos
+@app.route('/modelos/marca/<int:id_marca>', methods=['GET'])
+def get_modelos_por_marca(id_marca):
+    try:
+        modelos = Modelo.query.filter_by(id_marca=id_marca).all()
+        if modelos:
+            modelo_schema = ModeloSchema(many=True)
+            return modelo_schema.jsonify(modelos)
+        else:
+            return jsonify({'message': 'No models found for this brand.'}), 404
+    except Exception as e:
+        print(f"Error: {e}")
+        return jsonify({'error': 'Internal Server Error'}), 500
+    
+
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
+
 #  python apidb.py, para ejecutar

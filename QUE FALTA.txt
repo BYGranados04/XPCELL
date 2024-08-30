@@ -1,0 +1,2 @@
+* Falta que al presionar un modelo, salga los repuestos que hay de ese modelo.
+* Falta que salga el tipo de repuestos, y asi mismo al presionar el tipo de repuesto salgan los repuestos de ese tipo.

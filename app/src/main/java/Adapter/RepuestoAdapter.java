@@ -31,7 +31,7 @@ public class RepuestoAdapter extends RecyclerView.Adapter<RepuestoAdapter.Repues
     public void onBindViewHolder(@NonNull RepuestoViewHolder holder, int position) {
         Repuesto repuesto = repuestos.get(position);
         holder.nombreRepuesto.setText(repuesto.getNombre_repuesto());
-        holder.precio.setText(String.valueOf(repuesto.getPrecio()));
+        holder.precio.setText(String.format("$%.2f", repuesto.getPrecio()));
         holder.stock.setText(String.valueOf(repuesto.getStock()));
         holder.tipoRepuesto.setText(repuesto.getTipo_repuesto());
         holder.modelo.setText(repuesto.getModelo());
@@ -40,6 +40,11 @@ public class RepuestoAdapter extends RecyclerView.Adapter<RepuestoAdapter.Repues
     @Override
     public int getItemCount() {
         return repuestos.size();
+    }
+
+    public void updateRepuestos(List<Repuesto> newRepuestos) {
+        this.repuestos = newRepuestos;
+        notifyDataSetChanged();
     }
 
     public static class RepuestoViewHolder extends RecyclerView.ViewHolder {
@@ -59,5 +64,6 @@ public class RepuestoAdapter extends RecyclerView.Adapter<RepuestoAdapter.Repues
         }
     }
 }
+
 
 
