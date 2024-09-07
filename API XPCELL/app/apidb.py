@@ -358,4 +358,4 @@ def get_modelos_por_marca(id_marca):
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
 
-#  python apidb.py, para ejecutar
+#  python apidb.py, para ejecutar, cd QC:\Users\brenn\OneDrive\Escritorio\Mis cosas\1. UMG\6to Semestre\BD 1\Proyecto\XPCELL\API XPCELL\app"
